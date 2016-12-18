@@ -30,9 +30,9 @@ function initMap() {
 		title: 'Hello World!'
 	});
 }
-
+/* get all places by type */
 getPlacesByType("restaurant", 500)
-function getPlacesByType(type, radius) {
+function getPlacesByType(type, radius=500) {
 	const rooturl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
 	const location = "location="+ myLatLng.lat+","+myLatLng.lng +"&";
 	const radiusparameter = "radius="+radius +"&";
@@ -40,14 +40,18 @@ function getPlacesByType(type, radius) {
 	const key = "key=AIzaSyCd-hQBzbOUihAVIpPzyKWYnbPagdj4jmE"
 	let link = rooturl + location + radiusparameter + typeparameter + key
 	console.log(link)
-
-
-
-
-
+	data = $.get (link)
 
 }
-/* get all places by type */
+
+$('.typebtn').click(function(e) {
+	console.log($(this)[0].id);
+	const type=($(this)[0].id)
+
+	getPlacesByType(type)
+	
+})
+
 
 // draw places
 
