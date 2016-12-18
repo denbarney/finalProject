@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sharing the Harlem Experience</title>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.css">
-		<link rel="stylesheet" type="text/css" href="styles/main2.css">
+  <title>Sharing the Harlem Experience</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.css">
+    <link rel="stylesheet" type="text/css" href="styles/main2.css">
 </head>
 <body>
 <!-- START HEADER ROW: CCNY ICON AND LINKS -->
@@ -22,29 +22,29 @@
     </div>  
   
 </div>
-  </div>		
+  </div>    
 
-    <!--	
+    <!--  
       <div class="ui items">
-			  <div class="item">
-			    <div class="image">
-			      <img src="assets/citycollegenp_flushleftcity_1.jpg">
-			    </div>
-			    <div class="content">
-			      <a class="header">Sharing the Harlem Experience</a>
-			      <div class="meta">
-			        <span>Harlem Business Guide</span>
-			      </div>
-			      <div class="description">
-			        <p></p>
-			      </div>
-			      <div class="extra">
-			       Division of Government, Community, and Cultural Affairs
-			      </div>
-			    </div>
-			  </div>
+        <div class="item">
+          <div class="image">
+            <img src="assets/citycollegenp_flushleftcity_1.jpg">
+          </div>
+          <div class="content">
+            <a class="header">Sharing the Harlem Experience</a>
+            <div class="meta">
+              <span>Harlem Business Guide</span>
+            </div>
+            <div class="description">
+              <p></p>
+            </div>
+            <div class="extra">
+             Division of Government, Community, and Cultural Affairs
+            </div>
+          </div>
+        </div>
 </div>
-</header>	
+</header> 
 
 <!-- End of HEADER ROW -->
 
@@ -60,43 +60,43 @@
 <!-- START MENU -->
 
 <div class="ui secondary menu">
-  			<a class="item typebtn js-restaurant" id="restaurant">
-  			Restaurants
-  			</a>
-<!--   			<a class="item typebtn js-arts">
-  			Arts &amp; Culture
-  			</a> -->
-  			<a class="item typebtn js-lodging" id="lodging">
-  			Lodging
-  			</a>
-  			<a class="item typebtn js-rec" id="park">
-  			Parks &amp; Recreation
-  			</a>
-<!--   			<a class="item typebtn js-worship">
-  			Places of Worship
-  			</a> -->
-  			<a class="item typebtn js-financial" id="bank">
-  			Financial Institutions
-  			</a>
-  			<a class="item typebtn js-health" id="hospital">
-  			Health
-  			</a>
-  			<a class="item typebtn js-beauty" id="gym">
-  			Beauty &amp; Fitness
-  			</a>
-  			<a class="item typebtn js-GCO" id="local_government_office">
-  			Government &amp; Community Organizations
-  			</a>
+        <a class="item typebtn js-restaurant" id="restaurant">
+        Restaurants
+        </a>
+<!--        <a class="item typebtn js-arts">
+        Arts &amp; Culture
+        </a> -->
+        <a class="item typebtn js-lodging" id="lodging">
+        Lodging
+        </a>
+        <a class="item typebtn js-rec" id="park">
+        Parks &amp; Recreation
+        </a>
+<!--        <a class="item typebtn js-worship">
+        Places of Worship
+        </a> -->
+        <a class="item typebtn js-financial" id="bank">
+        Financial Institutions
+        </a>
+        <a class="item typebtn js-health" id="hospital">
+        Health
+        </a>
+        <a class="item typebtn js-beauty" id="gym">
+        Beauty &amp; Fitness
+        </a>
+        <a class="item typebtn js-GCO" id="local_government_office">
+        Government &amp; Community Organizations
+        </a>
 </div>
 <div class="item mywindow js-container">
-<p></p>
+<div id='places'></div>
  </div>
 <!-- 
 <div class="ui bottom attached segment">
-	<div class="ui grid">
+  <div class="ui grid">
   <div id="map" class="float left ten wide column"></div>
   <div class="float right six wide column">
-  	<div class="ui items">
+    <div class="ui items">
   <div class="item">
     <div class="ui small image">
       <img src="/images/wireframe/image.png">
@@ -178,11 +178,14 @@
 <!-- END FOOTER -->
 
 <!-- pusher -->
+    <script type="text/javascript" src='javascript/data.js'></script>
 
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd-hQBzbOUihAVIpPzyKWYnbPagdj4jmE&callback=initMap"
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd-hQBzbOUihAVIpPzyKWYnbPagdj4jmE&callback=initMap"
     async defer></script>
-		<script type="text/javascript" src="javascript/main.js"></script>
+
+    
+    <script type="text/javascript" src="javascript/main.js"></script>
 </body>
 </html>
