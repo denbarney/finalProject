@@ -8,7 +8,24 @@
 <body>
 <!-- START HEADER ROW: CCNY ICON AND LINKS -->
 <header>    
-			<div class="ui items">
+  <div class="ui top menu inverted" style="background-color: #000;">
+    <div class="item">
+      <img class="ui top aligned tiny image" src="assets/citycollegenp_flushleftcity_1.jpg">
+    </div>
+    <a class="item"><span>Sharing the Harlem Experience</span></a>
+    <div class="right item">
+      <div class="ui mini icon input">
+      <input type="text" placeholder="Search...">
+      <i class="search icon"></i>
+      
+      </div>
+    </div>  
+  
+</div>
+  </div>		
+
+    <!--	
+      <div class="ui items">
 			  <div class="item">
 			    <div class="image">
 			      <img src="assets/citycollegenp_flushleftcity_1.jpg">
@@ -31,43 +48,50 @@
 
 <!-- End of HEADER ROW -->
 
-<!-- START MENU -->
-
-<div class="ui secondary pointing menu">
-  			<a class="item">
-			Restaurants
-			</a>
-			<a class="item">
-			Arts &amp; Culture
-			</a>
-			<a class="item">
-			Lodging
-			</a>
-			<a class="item">
-			Parks &amp; Recreation
-			</a>
-			<a class="item">
-			Places of Worship
-			</a>
-			<a class="item">
-			Financial Institutions
-			</a>
-			</a>
-			<a class="item">
-			Health
-			</a>
-			</a>
-			<a class="item">
-			Beauty &amp; Fitness
-			</a>
-			<a class="item">
-			Government &amp; Community Organizations
-			</a>
-
+<!-- START MAP -->
+<div class="ui grid">
+  <div class="centered twelve wide column">
+    <div id="map"></div>
+  </div>
 </div>
 
- </div>
+<!-- END MAP -->
 
+<!-- START MENU -->
+
+<div class="ui secondary menu" style="background-color: #000;">
+  			<a class="item js-restaurant">
+  			Restaurants
+  			</a>
+  			<a class="item js-arts">
+  			Arts &amp; Culture
+  			</a>
+  			<a class="item js-lodging">
+  			Lodging
+  			</a>
+  			<a class="item js-rec">
+  			Parks &amp; Recreation
+  			</a>
+  			<a class="item js-worship">
+  			Places of Worship
+  			</a>
+  			<a class="item js-financial">
+  			Financial Institutions
+  			</a>
+  			<a class="item js-health">
+  			Health
+  			</a>
+  			<a class="item js-beauty">
+  			Beauty &amp; Fitness
+  			</a>
+  			<a class="item js-GCO">
+  			Government &amp; Community Organizations
+  			</a>
+</div>
+<div class="item mywindow js-container">
+<p></p>
+ </div>
+<!-- 
 <div class="ui bottom attached segment">
 	<div class="ui grid">
   <div id="map" class="float left ten wide column"></div>
