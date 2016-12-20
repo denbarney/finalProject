@@ -1,3 +1,10 @@
+
+// $('.js-main-menu').click(function() {
+// 	$('.ui.sidebar')
+// 		// .sidebar('setting', 'transition', 'overlay')
+// 		.sidebar('setting', 'dimPage', false)
+// 		.sidebar('toggle');
+// })
 	const myLatLng = {
 		lat: 40.8200471, 
 		lng: -73.9514611
@@ -11,7 +18,10 @@ function initMap() {
 	});
 
 
-const map = new google.maps.Map(document.getElementById('map'), {
+
+	
+
+	const map = new google.maps.Map(document.getElementById('map'), {
 	  center: myLatLng,
 	  zoom: 15,
 	  gestureHandling: 'auto',
@@ -244,84 +254,123 @@ map.data.loadGeoJson(
 }
 
 
-// const service = new google.maps.places.PlacesService(map);
-// service.nearbySearch(request, callback);
 
 
 
-// const infowindow;
+/* get all places by type */
+getPlacesByType("restaurant", 500)
+function getPlacesByType(type, radius=500) {
+	const rooturl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
+	const location = "location="+ myLatLng.lat+","+myLatLng.lng +"&";
+	const radiusparameter = "radius="+radius +"&";
+	const typeparameter = "type="+type +"&";
+	const key = "key=AIzaSyCd-hQBzbOUihAVIpPzyKWYnbPagdj4jmE"
+	let link = rooturl + location + radiusparameter + typeparameter + key
+	//get data
+	return data
+}
 
 
 
 $('.typebtn').click(function(e) {
 	console.log($(this)[0].id);
 	const type=($(this)[0].id)
-	
+	console.log(data);
+
+	/*var places = getPlacesByType(type)*/
+	let places = data.results
 
 
-  const request = {
-    location: myLatLng,
-    radius: '500',
-    types: [type]
-  };
+	places.forEach(function(place) {
+		let el = makeCard(place)
+	    console.log(el, place.name);
+		$('#places').append(el)
+	})
+})
 
-const service = new google.maps.places.PlacesService(map);
-  
-  service.nearbySearch(request, callback);
-});
-
+// MARKER FOR SEARCHED ITEMS
 function callback(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (let i = 0; i < results.length; i++) {
-      const place = results[i];
-      createMarker(results[i]);
-    }
+  if (status == google.maps.places.getPlacesByType.OK) {
+    const marker = new google.maps.Marker({
+      map: 'map',
+      place: {
+        placeId: results[0].place_id,
+        location: results[0].geometry.location
+      }
+    });
   }
 }
+function createPhotoMarker(place) {
+  var photos = place.photos;
+  if (!photos) {
+    return;
+  }
 
- function createMarker(place) {
-        const placeLoc = place.geometry.location;
-        console.log(map)
-        const marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        });
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location,
+    title: place.name,
+    icon: photos[0].getUrl({'maxWidth': 35, 'maxHeight': 35})
+  });
+}
+// google.maps.event.addDomListener(window, 'load', initialize);
 
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
-        });
-      }
+// STYLING FOR DATA
 
+function makeCard(place){
+	return `
+<div>
+	<p>
+    <image width="30" src="data:image/png;base64,${place.photos[0].photo_reference}"/>  
+		<strong>${place.name}</strong>
 
+		<em class="red">${place.rating}</em>
+	</p>
+</div>`;
+}
+// return
 
-// I want the user to click on something and grab what they are looking for
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// `
+// <div class="ui items">
+// 	<div class="item">
+// 		<div class="ui small image">
+// 			<img src="data:image/png;base64,${place.photos[0].photo_reference}"/>
+// 		</div>
+// 		<div class="content">
+// 			<div class="header">${place.name}</div>`;
+//     }
 
 
 
+// 	<p>
+// 		<strong>${place.name}</strong>
+// 		<em class="red">${place.rating}</em>
+// 		<image width="30" src="data:image/png;base64,${place.photos[0].photo_reference}"/>
+// 	</p>
+// </div>`;
 
+// // // <div class="ui items">
+// //   <div class="item">
+// //     <div class="ui small image">
+// //       <img src="/images/wireframe/image.png">
+// //     </div>
+// //     <div class="content">
+// //       <div class="header">Arrowhead Valley Camp</div>
+// //       <div class="meta">
+// //         <span class="price">$1200</span>
+// //         <span class="stay">1 Month</span>
+// //       </div>
+// //       <div class="description">
+// //         <p></p>
+// //       </div>
+// //     </div>
+// //   </div>
+
+
+// // draw places
+
+// // search places 
+
+// // load retrieved content in container 
 
 
