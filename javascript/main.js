@@ -283,15 +283,55 @@ function callback(results, status) {
         const placeLoc = place.geometry.location;
         console.log(map)
         const marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
+          setmap: map,
+          position: placeLoc
         });
+        console.log(marker)
 
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.setContent(place.name);
-          infowindow.open(map, this);
+          infowindow.open(setmap, this);
         });
       }
+
+
+//  function addMarker(place) {
+//   const marker = new google.maps.Marker({
+//     map: map,
+//     position: place.geometry.location,
+//     icon: {
+//       url: 'https://developers.google.com/maps/documentation/javascript/images/circle.png',
+//       anchor: new google.maps.Point(10, 10),
+//       scaledSize: new google.maps.Size(10, 17)
+//     }
+//   });
+
+//   google.maps.event.addListener(marker, 'click', function() {
+//     service.getDetails(place, function(result, status) {
+//       if (status !== google.maps.places.PlacesServiceStatus.OK) {
+//         console.error(status);
+//         return;
+//       }
+//       infoWindow.setContent(result.name);
+//       infoWindow.open(map, marker);
+//     });
+//   });
+// }
+
+// function callback(results, status) {
+//   if (status == google.maps.places.PlacesServiceStatus.OK) {
+//     const marker = new google.maps.Marker({
+//       map: map,
+//       place: {
+//         placeId: results[0].place_id,
+//         location: results[0].geometry.location
+//       }
+//     });
+//   }
+// }
+
+
+
 
 
 
