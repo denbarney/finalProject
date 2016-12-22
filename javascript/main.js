@@ -230,21 +230,20 @@
 
 
       if (markers.length > 0) {
-        console.log(markers.length);
-
-
+        // console.log(markers.length);
         clearMarkers();
+        $('.js-container').empty()
       }
 
 
-      console.log($(this)[0].id);
+      // console.log($(this)[0].id);
       const type = ($(this)[0].id)
 
 
 
       const request = {
           location: myLatLng,
-          radius: '500',
+          radius: '550',
           types: [type]
       };
 
@@ -252,26 +251,52 @@
       const service = new google.maps.places.PlacesService(map);
 
       service.nearbySearch(request, callback);
+      // service.textSearch(request, callback);
   });
+
+   
+
 
   function callback(results, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
           for (let i = 0; i < results.length; i++) {
               const place = results[i];
-              createMarker(results[i]);
+              console.log(place)
+              createMarker(place);
+              createHtmlRow(place);
           }
       }
   }
   console.log(callback);
 
+  function createHtmlRow(place) {
+    const container = $('.js-container');
+
+    const htmlToAdd = makeCard(place);
+    console.log(htmlToAdd)
+
+    container.append(htmlToAdd) 
+  }
+
+
   function createMarker(place) {
+
+    var infowindow = new google.maps.InfoWindow({
+      content: makeCard(place)
+    });
+
 
       const marker = new google.maps.Marker({
           map: map,
-          position: place.geometry.location
+          position: place.geometry.location,
+          title: place.name,
+       
       });
 
       markers.push(marker);
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
 
 
       // google.maps.event.addListenerOnce(map, marker, 'click', function(e) {
